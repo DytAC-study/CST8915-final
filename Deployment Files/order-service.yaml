@@ -28,7 +28,6 @@ spec:
                   key: connectionString
             - name: ORDER_QUEUE_NAME
               value: "orders"
-
             - name: FASTIFY_ADDRESS
               value: "0.0.0.0"
           resources: # Resource allocation
