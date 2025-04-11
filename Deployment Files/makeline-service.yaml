@@ -28,6 +28,11 @@ spec:
                   key: connectionString
             - name: ORDER_QUEUE_NAME
               value: "orders"
+<<<<<<< HEAD
+=======
+            - name: ORDER_QUEUE_NAME
+              value: "orders"
+>>>>>>> 579b8ec67aac25914a86d9d03f4fa5c7ff0284fa
             - name: ORDER_DB_URI
               value: "mongodb://mongodb:27017" # MongoDB connection string
             - name: ORDER_DB_NAME
