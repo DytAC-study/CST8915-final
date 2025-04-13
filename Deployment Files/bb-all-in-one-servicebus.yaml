@@ -82,9 +82,9 @@ spec:
             - name: USE_WORKLOAD_IDENTITY_AUTH
               value: "True" # Set to True for Azure Workload Identity authentication 
             - name: ORDER_QUEUE_HOSTNAME
-              value: "bbservicebus.servicebus.windows.net"
+              value: ""
             - name: ORDER_QUEUE_PASSWORD
-              value: "9qJnEEhM5k1mnNNf2ZmDlwkWhuISsWnpD+ASbCM1hAo="
+              value: ""
             - name: ORDER_QUEUE_TRANSPORT
               value: "tls"
             - name: ORDER_QUEUE_RECONNECT_LIMIT
@@ -164,7 +164,7 @@ spec:
             - name: ORDER_QUEUE_USERNAME
               value: "listener"
             - name: ORDER_QUEUE_PASSWORD
-              value: "LZYMQgpiCxli74QWRAYxISCIfFNCHX1AM+ASbF29O9g="
+              value: ""
             - name: ORDER_DB_URI
               value: "mongodb://mongodb:27017" # MongoDB connection string
             - name: ORDER_DB_NAME

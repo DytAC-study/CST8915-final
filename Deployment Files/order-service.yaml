@@ -21,17 +21,22 @@ spec:
           ports:
             - containerPort: 3000 # Order service listens on this port
           env: # Environment variables for configuration
-            - name: AZURE_SERVICEBUS_CONNECTION_STRING # Azure Service Bus connection string
-              valueFrom:
-                secretKeyRef:
-                  name: azure-servicebus-secret
-                  key: connectionString
             - name: ORDER_QUEUE_NAME
               value: "orders"
+            - name: ORDER_QUEUE_PORT
+              value: "5671"
+            - name: ORDER_QUEUE_USERNAME
+              value: "sender"
             - name: USE_WORKLOAD_IDENTITY_AUTH
               value: "True" # Set to True for Azure Workload Identity authentication 
-            - name: AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE
-              value: "bbservicebus.servicebus.windows.net"
+            - name: ORDER_QUEUE_HOSTNAME
+              value: ""
+            - name: ORDER_QUEUE_PASSWORD
+              value: ""
+            - name: ORDER_QUEUE_TRANSPORT
+              value: "tls"
+            - name: ORDER_QUEUE_RECONNECT_LIMIT
+              value: "10"
             - name: FASTIFY_ADDRESS
               value: "0.0.0.0"
           resources: # Resource allocation
