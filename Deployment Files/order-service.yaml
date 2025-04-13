@@ -28,6 +28,10 @@ spec:
                   key: connectionString
             - name: ORDER_QUEUE_NAME
               value: "orders"
+            - name: USE_WORKLOAD_IDENTITY_AUTH
+              value: "True" # Set to True for Azure Workload Identity authentication 
+            - name: AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE
+              value: "bbservicebus.servicebus.windows.net"
             - name: FASTIFY_ADDRESS
               value: "0.0.0.0"
           resources: # Resource allocation
