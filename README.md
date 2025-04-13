@@ -248,6 +248,52 @@ To enable AI-generated product descriptions and image generation features, you w
 
    - using `EXTERNAL-IP`:80  of store-front and store-admin services to visit those pages.
 
+## Step 5: Implement CI-CD
+
+`ci-cd.yaml`  was added in all git repos except virtual-customer and virtual-worker, you can modify it and set up secrets oGitHubub.
+
+**Set Up Secrets**
+
+- Go to **Settings > Secrets and variables > Actions** in each forked repository.
+
+- Add the following repository secrets:
+
+  - `DOCKER_USERNAME`: Your Docker Hub username.
+
+  - `DOCKER_PASSWORD`: Your Docker Hub password.
+
+  - ```
+    KUBE_CONFIG_DATA
+    ```
+
+    : Base64-encoded content of your Kubernetes configuration file (
+
+    ```
+    kubeconfig
+    ```
+
+    ). This is used for authentication with your Kubernetes cluster.
+
+    - Run the following commands to get `KUBE_CONFIG_DATA` after connecting to your AKS cluster:
+
+  ```
+  cat ~/.kube/config | base64 -w 0 > kube_config_base64.txt
+  ```
+
+  
+
+  Use the content of this file as the value for the KUBE_CONFIG_DATA secret in GitHub.
+
+**Set Up Environment Variables (Repository Variables)**
+
+- Go to **Settings > Secrets and variables > Actions** in each forked repository.
+- Add the following repository variables:
+  - `DOCKER_IMAGE_NAME`: The name of the Docker image to be built, tagged, and pushed (For example: `store-front-bb-v1`).
+  - `DEPLOYMENT_NAME`: The name of the Kubernetes deployment to update (For example: `store-front`).
+  - `CONTAINER_NAME`: The name of the container within the Kubernetes deployment to update (For example: `store-front`).
+
+
+
 ## Docker Images
 
 | **Service**        | **Docker Image Link**                                        |
